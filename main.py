@@ -1,12 +1,14 @@
 import cv2
 import numpy as np
 
-
+# Line 8: Calculates frames, width & height
+# Line 9: How frames are getting compressed
+# Line 10: Takes compressed frames and does magic with the frames
+# Line 11: Init blob detector
 vid = cv2.VideoCapture(r'/Users/brandonchasser/git/SLAM/videos/road.mp4')
 size = (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)), int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 video = cv2.VideoWriter(r'E:/6.avi', fourcc, 30, size)
-
 params = cv2.SimpleBlobDetector_Params()
 
 
