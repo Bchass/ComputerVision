@@ -46,7 +46,7 @@ while(1):
     else : 
 	    detector = cv2.SimpleBlobDetector_create(params)
     keypoints = detector.detect(frame)
-    with_kp = cv2.drawKeypoints(frame, keypoints, np.array([]), (0,255,0), cv2.DRAW_MATCHES_FLAGS_DEFAULT)
+    with_kp = cv2.drawKeypoints(frame, keypoints, np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DEFAULT)
     if ret == True:
         video.write(with_kp)
         cv2.imshow('frame', with_kp)
