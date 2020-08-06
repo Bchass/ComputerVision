@@ -1,4 +1,4 @@
-import cv2
+from cv2 import cv2
 import numpy as np
 
 # Line 8: Calculates frames, width & height
@@ -20,8 +20,8 @@ while(1):
     params = cv2.SimpleBlobDetector_Params()
 
     # thresholds
-    params.minThreshold = 100;
-    params.maxThreshold = 112;
+    params.minThreshold = 100
+    params.maxThreshold = 112
 
     # Area
     params.filterByArea = 1
