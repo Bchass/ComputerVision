@@ -29,11 +29,11 @@ while(1):
  
     # thresholds
     params.minThreshold = 100
-    params.maxThreshold = 115
+    params.maxThreshold = 112
 
     # Area
-    params.filterByArea = 1
-    params.minArea = 1
+    params.filterByArea = True
+    params.minArea = 60
 
     # Circularity
     params.filterByCircularity = True
@@ -41,11 +41,11 @@ while(1):
 
     # Convexity
     params.filterByConvexity = True
-    params.minConvexity = 1
+    params.minConvexity = 0.87
 
     # Inertia
-    params.filterByInertia = 1
-    params.minInertiaRatio = 1
+    params.filterByInertia = True
+    params.minInertiaRatio = 0.01
 
     # Blob detector picks up params
     ver = (cv2.__version__).split('.')
@@ -56,7 +56,7 @@ while(1):
 	    detector = cv2.SimpleBlobDetector_create(params)
     keypoints = detector.detect(frame)
     with_kp = cv2.drawKeypoints(frame, keypoints, np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-    
+
     # If video is open calls keypoints to be displayed
     if ret == True:
         video.write(with_kp)
@@ -64,6 +64,9 @@ while(1):
     else:
         vid.release()
         break
-    # Close out video
-    if cv2.waitKey(20) & 0xFF == ord('q'):
+    # Close out / pause video
+    key = cv2.waitKey(1)
+    if key == ord('q'):
         break
+    if key == ord('p'):
+        cv2.waitKey(-1)
