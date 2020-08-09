@@ -1,4 +1,4 @@
-# 3DMapping
+# ComputerVision
 Mapping out some footage from a friends dashcam to render a 3D map and detect objects around the car. Learning the ways of OpenCV and the different algorithms I can use.
 
 ----
