@@ -5,3 +5,16 @@ test.py
 pictures/building.jpg
 test2.py
 videos/new.mp4
+pictures/audi.jpg
+.swp
+real-time-object-detection.zip
+real-time-object-detection/MobileNetSSD_deploy.caffemodel
+real-time-object-detection/MobileNetSSD_deploy.prototxt.txt
+real-time-object-detection/real_time_object_detection.py
+Example/MobileNetSSD_deploy.caffemodel
+Example/MobileNetSSD_deploy.prototxt.txt
+Example/real_time_object_detection.py
+real_time_detection/MobileNetSSD_deploy.prototxt.txt
+real_time_detection/MobileNetSSD_deploy.caffemodel
+MobileNetSSD_deploy.caffemodel
+MobileNetSSD_deploy.prototxt.txt
