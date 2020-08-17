@@ -5,7 +5,9 @@ import numpy as np
 # Line 9: How frames are getting compressed
 # Line 10: Takes compressed frames and does magic with the frames
 # Line 11: Init blob detector
-vid = cv2.VideoCapture(r'/Users/bchass/Documents/git/3DMapping/videos/new.mp4')
+
+# depending if monitor is present or not, video will change out for FPS needs
+vid = cv2.VideoCapture(r'/Users/bchass/Documents/git/ComputerVision/videos/road.mp4')
 size = (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)), int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 video = cv2.VideoWriter(r'E:/6.avi', fourcc, 30, size)
@@ -23,7 +25,6 @@ while(1):
     ret, frame = vid.read()
     if not ret:
         break
-    
     frame = cv2.convertScaleAbs(frame)
     params = cv2.SimpleBlobDetector_Params()
  
@@ -33,18 +34,18 @@ while(1):
 
     # Area
     params.filterByArea = True
-    params.minArea = 60
+    params.minArea = 500
 
     # Circularity
     params.filterByCircularity = True
     params.minCircularity = 0.1
 
     # Convexity
-    params.filterByConvexity = True
+    params.filterByConvexity = False
     params.minConvexity = 0.87
 
     # Inertia
-    params.filterByInertia = True
+    params.filterByInertia = False
     params.minInertiaRatio = 0.01
 
     # Blob detector picks up params
@@ -62,7 +63,7 @@ while(1):
         video.write(with_kp)
         cv2.imshow('frame', with_kp)
     else:
-        vid.release()
+        vid.release() 
         break
     # Close out / pause video
     key = cv2.waitKey(1)
